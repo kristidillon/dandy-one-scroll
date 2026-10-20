@@ -1,0 +1,165 @@
+<!doctype html><html><head>
+<meta name="robots" content="noindex"><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Dandy in One Scroll</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one narrow column, full-width tinted bands mark the four chapters: lab, scanner, proof, your scanner. */
+:root{
+  --bg:#ffffff; --bg-band:#f3f6f8; --fg:#13202b; --muted:#5a6b78; --line:#d9e1e7;
+  --accent:#0b5fd8; --accent-ink:#ffffff; --accent-soft:#e6efff; --ok:#1a8a5a;
+  --display:"Sora",system-ui,sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0f161c; --bg-band:#151f27; --fg:#edf2f6; --muted:#9db0bf; --line:#27343f;
+  --accent:#5a9bff; --accent-ink:#0b1420; --accent-soft:#17283f; --ok:#4fcf8f; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0f161c; --bg-band:#151f27; --fg:#edf2f6; --muted:#9db0bf; --line:#27343f;
+  --accent:#5a9bff; --accent-ink:#0b1420; --accent-soft:#17283f; --ok:#4fcf8f; color-scheme:dark }
+
+body{background:var(--bg);color:var(--fg);font:16px/1.55 var(--body);margin:0}
+*{box-sizing:border-box}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:56px}
+.band{background:var(--bg-band)}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(34px,6vw,52px);font-weight:700;letter-spacing:-.02em}
+h2{font-size:clamp(24px,3.6vw,32px);font-weight:600;letter-spacing:-.01em}
+h3{font-size:17px;font-weight:600}
+p{margin:0;max-width:62ch}
+.eyebrow{font-family:var(--body);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.lead{font-size:19px;color:var(--muted);margin-top:16px}
+.stack{display:grid;gap:14px}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-top:28px}
+.item{display:grid;gap:6px}
+.item h3{display:flex;align-items:center;gap:8px}
+.item p{color:var(--muted);font-size:15px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
+.steps{display:grid;gap:0;margin-top:28px;border-top:1px solid var(--line)}
+.step{display:grid;grid-template-columns:56px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.step .n{font-family:var(--display);font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
+.step p{color:var(--muted);font-size:15px}
+.proof{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));margin-top:28px}
+.proof .fig{font-family:var(--display);font-size:38px;font-weight:700;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums}
+.proof .cap{color:var(--muted);font-size:14px;margin-top:6px}
+.callout{border:1px solid var(--line);border-left:4px solid var(--accent);padding:18px 20px;margin-top:28px;background:var(--bg)}
+.callout p{color:var(--fg)}
+.note{font-size:13px;color:var(--muted);margin-top:18px}
+.scanners{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:28px}
+.sc{border:1px solid var(--line);padding:20px;display:grid;gap:10px;min-width:0}
+.sc.full{border-color:var(--accent);background:var(--accent-soft)}
+.pill{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--accent);color:var(--accent-ink);width:max-content}
+.sc.partial .pill{background:var(--muted);color:var(--bg)}
+.sc ul{margin:0;padding-left:18px;color:var(--muted);font-size:15px}
+.contact{display:grid;gap:12px;margin-top:28px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.val{font-family:var(--display);font-weight:600;font-size:20px;user-select:all}
+button{font:600 14px var(--body);padding:8px 14px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.cta{display:inline-block;margin-top:24px;padding:14px 22px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font:600 16px var(--display);border-radius:8px}
+.hero-video{display:block;width:100%;max-width:100%;aspect-ratio:16/9;margin-top:28px;border-radius:12px;background:#0f161c}
+.sig{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+@media (prefers-reduced-motion:no-preference){.fade{animation:up .5s ease both}@keyframes up{from{opacity:.001;transform:translateY(8px)}to{opacity:1;transform:none}}}
+</style>
+
+<section>
+  <div class="wrap fade">
+    <div class="eyebrow">Dandy · the digital dental lab</div>
+    <h1>Everything Dandy does, in one scroll.</h1>
+    <p class="lead">Dandy's got you covered: free scan bodies, surgical planning, live scan support and case management, all in one digitally fueled, human-operated lab. One crown case shows you the whole workflow.</p>
+    <video class="hero-video" controls playsinline preload="metadata" poster="poster.jpg" src="scan-to-seat-v3.mp4"></video>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="eyebrow">The lab</div>
+    <h2>One lab for the whole restorative schedule.</h2>
+    <div class="grid">
+      <div class="item"><h3><span class="dot"></span>Crown &amp; bridge</h3><p>Monolithic zirconia, translucent aesthetic zirconia, PFZ, Emax and layered Emax, bridges.</p></div>
+      <div class="item"><h3><span class="dot"></span>Implants</h3><p>Implant crowns, custom abutments, surgical guides, scan bodies.</p></div>
+      <div class="item"><h3><span class="dot"></span>Removables</h3><p>2-Appointment Dentures, immediate and overdentures, straight-to-finish acrylic, flexible and chrome cobalt partials.</p></div>
+      <div class="item"><h3><span class="dot"></span>Appliances</h3><p>Night guards, splints, retainers, aligners and sleep appliances, all ordered from the same portal.</p></div>
+    </div>
+    <div class="callout">
+      <p><strong>Warranty:</strong> lifetime on crowns and fixed restorations, 10 years on removables. One connected workflow from scan to delivery, no outside partners to manage. Month to month, no long-term contract, no software fees, no hidden fees.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">The scanner</div>
+    <h2>A Dandy-placed scanner at no cost, powered by Dandy.</h2>
+    <p class="lead">We provide a 3Shape TRIOS or a Dandy Vision scanner, or we add Dandy to the TRIOS you already own. Those are the only scanners compatible with every Dandy feature below.</p>
+    <div class="steps">
+      <div class="step"><span class="n">Scan</span><div><h3>AI-guided scanning, full arch in about 45 seconds</h3><p>Real-time prep guidance flags margins, undercuts and clearance while you scan. No calibration. Dandy provides you with autoclavable scanner tips, and the scanner, laptop and cart are all included. The scanner learns your workflow, so accuracy keeps improving over time.</p></div></div>
+      <div class="step"><span class="n">Review</span><div><h3>Unlimited live scan reviews, under 2 minutes each</h3><p>A lab technician checks the scan while the patient is still in the chair, by chat or video call. If something is off, you fix it now, not on a rescan call days later.</p></div></div>
+      <div class="step"><span class="n">Preview</span><div><h3>Design preview before fabrication</h3><p>You see the case while it is being made and change it before it ships.</p></div></div>
+      <div class="step"><span class="n">Make</span><div><h3>Made in Dandy's US labs</h3><p>The majority of fixed and removable work is manufactured in Lehi, UT and Dallas, TX, with a small number of specialized partner labs.</p></div></div>
+      <div class="step"><span class="n">Seat</span><div><h3>Crowns and bridges in 5 business days</h3><p>Lab tech chat answers in under a minute, with a case portal and mobile app to track every case.</p></div></div>
+    </div>
+    <div class="grid">
+      <div class="item"><h3><span class="dot"></span>Instant Smile Simulator</h3><p>Upload a full-face smile photo in the portal, simulate an orthodontic or restorative result, and share a before/after link with the patient.</p></div>
+      <div class="item"><h3><span class="dot"></span>CE-credited training</h3><p>Live, virtual training for the doctor and the team, with 2 CEs on a Dandy-placed scanner.</p></div>
+      <div class="item"><h3><span class="dot"></span>Clinical support team</h3><p>In-operatory chairside support when you want a second set of eyes on a prep or a scan.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="eyebrow">Our data shows</div>
+    <h2>What offices see once the work is here.</h2>
+    <div class="proof">
+      <div><div class="fig">98%</div><div class="cap">success rate at the seat</div></div>
+      <div><div class="fig">5 days</div><div class="cap">crown &amp; bridge turnaround</div></div>
+      <div><div class="fig">&lt;2 min</div><div class="cap">live technician scan review</div></div>
+      <div><div class="fig">7,000+</div><div class="cap">practices on Dandy</div></div>
+    </div>
+    <p class="note">Figures are Dandy's internal data. Results vary by office and case mix.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Already have a scanner?</div>
+    <h2>Ask us if we work with your existing scanner.</h2>
+    <p class="lead">Compatibility depends on the scanner. Here is the short version.</p>
+    <div class="scanners">
+      <div class="sc full">
+        <span class="pill">Every feature</span>
+        <h3>3Shape TRIOS</h3>
+        <ul><li>Same features as a Dandy-placed scanner</li><li>Fixed, removables, implants, appliances</li><li>Live scan review and design previews</li></ul>
+      </div>
+      <div class="sc partial">
+        <span class="pill">Fixed restorative only</span>
+        <h3>Other scanners (for example iTero)</h3>
+        <ul><li>Not compatible with every Dandy feature</li><li>If eligible, can be used for fixed restorative cases</li><li>Ask and we will confirm whether yours qualifies</li></ul>
+      </div>
+    </div>
+    <div class="callout">
+      <p><strong>What you receive:</strong> Dandy-placed scanner, laptop and operatory cart · CE-accredited training for you and your team · unlimited live scan reviews · lab technician chairside support · design previews · warranty on all products and equipment.</p>
+    </div>
+    <div class="contact">
+      <h3 style="margin-top:28px">Next step: pick the first case.</h3>
+      <p style="color:var(--muted)">Most offices start with a single crown so the team sees fit and turnaround firsthand. Reply to my email with the case and a day that works for install and training, and I will take it from there.</p>
+      <div class="row"><span class="val" id="email">kristi.dillon@meetdandy.com</span><button type="button" data-copy="kristi.dillon@meetdandy.com">Copy email</button></div>
+    </div>
+    <div class="sig">Kristi L. Dillon, BS, RDH · Account Executive, Dandy</div>
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('button[data-copy]').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=b.getAttribute('data-copy'), label=b.textContent;
+    function done(){b.textContent='Copied';setTimeout(function(){b.textContent=label},1500)}
+    try{navigator.clipboard.writeText(t).then(done,fallback)}catch(e){fallback()}
+    function fallback(){var el=b.previousElementSibling;var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r)}
+  });
+});
+</script>
+
+</body></html>
